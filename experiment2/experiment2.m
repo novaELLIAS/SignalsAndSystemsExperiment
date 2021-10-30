@@ -22,3 +22,5 @@ stem(nh, h); grid on; xlabel('n'); ylabel('h');
 
 subplot(3, 1, 3);
 stem(ny, y); grid on; xlabel('n'); ylabel('x*h');
+
+y

@@ -28,10 +28,10 @@ end
 % 矩形脉冲
 figure(2)
 
-tt = 10;
+tt = 2;
 E  = 1;
-t  = linspace(-tt/2, tt/2, 1000);
-w  = linspace(-10, 10, 10000);
+t  = linspace(-10, 10, 10000);
+w  = linspace(-30, 30, 10000);
 F  = E * tt * sinc(w/(2*pi)*tt);
 
 subplot(3, 1, 1);
@@ -47,11 +47,11 @@ plot(w, angle(F)); grid on; xlabel('\omega'); ylabel('\phi(\omega)');
 % 升余弦脉冲
 figure(3);
 
-tt = 5;
+tt = 2;
 E  = 1;
-t  = linspace(-tt/2, tt/2, 10000);
-w  = linspace(-10, 10, 10000);
-f  = E/2*(1 + cos(2*pi*t/tt));
+t  = linspace(-10, 10, 10000);
+w  = linspace(-30, 30, 10000);
+f  = E/2*(1 + cos(2*pi*t/tt)).*rectpuls(t, tt);
 wo = 2 * pi / tt;
 F  = f_ori(E, w, tt) + f_ori(E, w - wo, tt) / 2 + f_ori(E, w + wo, tt) / 2;
 
@@ -71,11 +71,11 @@ plot(w, angle(F)); grid on; xlabel('\omega'); ylabel('\phi(\omega)');
 % 三角脉冲
 figure(4);
 
-tt = 5;
+tt = 2;
 E  = 1;
-t  = linspace(-tt/2, tt/2, 10000);
-w  = linspace(-10, 10, 10000);
-f  = E*(1-2*abs(t)/tt);
+t  = linspace(-10, 10, 10000);
+w  = linspace(-30, 30, 10000);
+f  = E*(1-2*abs(t)/tt).*rectpuls(t, tt);
 F  = E*tt/2*power(sinc(w*tt/4/pi), 2);
 
 subplot(4, 1, 1);
